@@ -10,6 +10,14 @@ promptBtn.addEventListener("click",()=>{
 
 });
 
+function randomRGB(){
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    return `rgb(${r},${g},${b})`;
+}
+
 function createGrid(size){
 
     const cont = document.querySelector("#container");
@@ -23,6 +31,12 @@ function createGrid(size){
         cell.classList.add("squarediv");
         cell.style.width = `${cellSize}px`;
         cell.style.height = `${cellSize}px`;
+
+        cell.addEventListener("mouseover", () => {
+
+        cell.style.backgroundColor = randomRGB();
+        });
+
         fragment.appendChild(cell);
     }
 cont.appendChild(fragment);
